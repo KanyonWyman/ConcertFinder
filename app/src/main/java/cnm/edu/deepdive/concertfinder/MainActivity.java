@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,8 +24,8 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
     drawer.addDrawerListener(toggle);
@@ -32,7 +33,15 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+
+    if (savedInstanceState == null) {
+
+      getSupportFragmentManager().beginTransaction()
+          .replace(R.id.drawer_layout, new SearchFragment()).commit();
+      navigationView.setCheckedItem(R.id.nav_search);
+    }
   }
+
 
   @Override
   public void onBackPressed() {
@@ -46,19 +55,13 @@ public class MainActivity extends AppCompatActivity
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
     int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
     if (id == R.id.action_settings) {
       return true;
     }
@@ -71,22 +74,21 @@ public class MainActivity extends AppCompatActivity
   public boolean onNavigationItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.nav_search:
-        //TODO jump to search
+        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new SearchFragment()).commit();
         break;
       case R.id.nav_gallery:
-        //TODO jump to gallery
+        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new ShowsFragment()).commit();
         break;
       case R.id.nav_event:
-        //TODO jump to events
+        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new EventsFragment()).commit();
         break;
       case R.id.nav_share:
-        //TODO jump to share
+        Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
         break;
       case R.id.nav_manage:
         //TODO jump to manage
         break;
-    }
-
+  }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
