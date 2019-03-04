@@ -1,9 +1,7 @@
-package cnm.edu.deepdive.concertfinder;
+package cnm.edu.deepdive.concertfinder.controller;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
+import android.preference.TwoStatePreference;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,9 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import cnm.edu.deepdive.concertfinder.R;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
+  private TwoStatePreference menuItem;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,6 @@ public class MainActivity extends AppCompatActivity
     navigationView.setNavigationItemSelectedListener(this);
 
     if (savedInstanceState == null) {
-
-      getSupportFragmentManager().beginTransaction()
-          .replace(R.id.drawer_layout, new SearchFragment()).commit();
-      navigationView.setCheckedItem(R.id.nav_search);
     }
   }
 
@@ -89,7 +86,8 @@ public class MainActivity extends AppCompatActivity
         //TODO jump to manage
         break;
   }
-
+    item.setChecked(true);
+    setTitle(item.getTitle());
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;

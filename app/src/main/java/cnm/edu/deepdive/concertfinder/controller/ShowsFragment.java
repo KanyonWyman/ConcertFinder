@@ -1,4 +1,4 @@
-package cnm.edu.deepdive.concertfinder;
+package cnm.edu.deepdive.concertfinder.controller;
 
 
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import cnm.edu.deepdive.concertfinder.R;
 
 
 public class ShowsFragment extends Fragment {
