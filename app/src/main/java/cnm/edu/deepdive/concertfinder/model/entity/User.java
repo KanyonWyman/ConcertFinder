@@ -1,7 +1,9 @@
 package cnm.edu.deepdive.concertfinder.model.entity;
 
-public class User {
+import android.arch.persistence.room.Entity;
 
+@Entity
+public class User {
 
   int _id;
   String _name;
