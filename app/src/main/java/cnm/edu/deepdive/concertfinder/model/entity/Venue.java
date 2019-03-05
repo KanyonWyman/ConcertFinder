@@ -1,10 +1,14 @@
 package cnm.edu.deepdive.concertfinder.model.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity
 public class Venue {
 
+  @PrimaryKey
+  @NonNull
   String _name;
   String _location;
 

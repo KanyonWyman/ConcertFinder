@@ -9,7 +9,9 @@ import cnm.edu.deepdive.concertfinder.model.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBHandler extends SQLiteOpenHelper {
+
+
+ public abstract class DBHandler extends SQLiteOpenHelper {
 
   private static final int DATABASE_VERSION = 1;
 

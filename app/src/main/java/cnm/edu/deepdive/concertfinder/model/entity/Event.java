@@ -1,10 +1,14 @@
 package cnm.edu.deepdive.concertfinder.model.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity
 public class Event {
 
+ @PrimaryKey
+ @NonNull
   String _time;
   String _date;
   String _location;
