@@ -2,7 +2,9 @@ package cnm.edu.deepdive.concertfinder.controller;
 
 import android.os.Bundle;
 import android.preference.TwoStatePreference;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -10,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import cnm.edu.deepdive.concertfinder.R;
 
@@ -37,7 +41,12 @@ public class MainActivity extends AppCompatActivity
 
     if (savedInstanceState == null) {
     }
-  }
+
+    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new SearchFragment()).commit();
+
+    }
+
+
 
 
   @Override
@@ -68,16 +77,16 @@ public class MainActivity extends AppCompatActivity
 
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
-  public boolean onNavigationItemSelected(MenuItem item) {
+  public boolean onNavigationItemSelected(@NonNull MenuItem item) {
     switch (item.getItemId()) {
       case R.id.nav_search:
-        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new SearchFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new SearchFragment()).commit();
         break;
       case R.id.nav_gallery:
-        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new ShowsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new ShowsFragment()).commit();
         break;
       case R.id.nav_event:
-        getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, new EventsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new EventsFragment()).commit();
         break;
       case R.id.nav_share:
         Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
