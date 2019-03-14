@@ -1,10 +1,10 @@
 package cnm.edu.deepdive.concertfinder.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.TwoStatePreference;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,10 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 import cnm.edu.deepdive.concertfinder.R;
+import cnm.edu.deepdive.concertfinder.service.GoogleSignInService;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,9 +66,11 @@ public class MainActivity extends AppCompatActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
+    boolean handled = true;
     int id = item.getItemId();
-    if (id == R.id.action_settings) {
-      return true;
+    if (id == R.id.sign_out) {
+      signOut();
+      return handled;
     }
 
     return super.onOptionsItemSelected(item);
@@ -100,5 +101,16 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
     return true;
+  }
+
+  private void signOut() {
+    GoogleSignInService.getInstance().getClient()
+        .signOut()
+        .addOnCompleteListener(this, (task) -> {
+      GoogleSignInService.getInstance().setAccount(null);
+          Intent intent = new Intent(this, LoginActivity.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+          startActivity(intent);
+    });
   }
 }
