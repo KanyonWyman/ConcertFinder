@@ -19,3 +19,5 @@ can still be sent notifications of their shows even when offline.
 
 This app will use data collected from ticket selling sites and local sources such as ABQ alibi.
 
+For more details on the project click this link [Javadoc](docs/api)
+
