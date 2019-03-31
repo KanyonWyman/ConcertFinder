@@ -1,8 +1,16 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.service.holdmyticket.models;
 
 import java.util.List;
 
 public class EventsResponse {
+
+  /**
+   * This class creates a list of all the info grabbed from the api and put into strings.
+   */
 
   List<Event> events = null;
 

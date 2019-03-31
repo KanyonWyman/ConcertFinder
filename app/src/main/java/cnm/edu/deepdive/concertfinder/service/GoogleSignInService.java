@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.service;
 
 import cnm.edu.deepdive.concertfinder.ConcertApplication;
@@ -18,6 +22,9 @@ public class GoogleSignInService {
         .requestId()
         .build();
     client = GoogleSignIn.getClient(ConcertApplication.getInstance(), options);
+    /**
+     * This method calls the google sign in options and connects you to google.
+     */
   }
 
   public static GoogleSignInService getInstance() {

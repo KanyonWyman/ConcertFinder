@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.controller;
 
 import android.content.Intent;
@@ -15,6 +19,9 @@ import com.google.android.gms.tasks.Task;
 
 public class LoginActivity extends AppCompatActivity {
 
+  /**
+   * This is the class that holds all the methods for logging into google.
+   */
   private static final int LOGIN_REQUEST_CODE = 1000;
 
   @Override
@@ -53,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
     Intent intent = GoogleSignInService.getInstance().getClient().getSignInIntent();
     startActivityForResult(intent, LOGIN_REQUEST_CODE);
   }
+
 
   private void switchToMain() {
     Intent intent = new Intent(this, MainActivity.class);

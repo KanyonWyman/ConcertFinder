@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.model.entity;
 
 import android.arch.persistence.room.Entity;

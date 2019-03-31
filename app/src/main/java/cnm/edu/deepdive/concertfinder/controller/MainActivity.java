@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.controller;
 
 import android.content.Intent;
@@ -19,6 +23,9 @@ import cnm.edu.deepdive.concertfinder.service.GoogleSignInService;
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
+  /**
+   * The main class of the navigation view
+   */
   private TwoStatePreference menuItem;
 
   @Override
@@ -111,6 +118,9 @@ public class MainActivity extends AppCompatActivity
           Intent intent = new Intent(this, LoginActivity.class);
           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
           startActivity(intent);
+          /**
+           * This method serves as a button on the main screen to sign out of the app.
+           */
     });
   }
 }

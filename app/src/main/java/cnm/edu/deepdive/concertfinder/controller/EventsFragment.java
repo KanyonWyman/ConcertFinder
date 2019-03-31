@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.controller;
 
 
@@ -10,6 +14,15 @@ import cnm.edu.deepdive.concertfinder.R;
 
 
 public class EventsFragment extends Fragment {
+
+  /**
+   *
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
+
 
 
   @Override

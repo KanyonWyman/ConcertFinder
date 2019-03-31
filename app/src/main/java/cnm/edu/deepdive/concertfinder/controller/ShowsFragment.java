@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.controller;
 
 
@@ -11,6 +15,13 @@ import cnm.edu.deepdive.concertfinder.R;
 
 public class ShowsFragment extends Fragment {
 
+  /**
+   * This is the fragment where a list view of saved shows will be shown to the user.
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,

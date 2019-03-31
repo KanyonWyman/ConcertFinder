@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.controller;
 
 
@@ -12,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import cnm.edu.deepdive.concertfinder.R;
 import cnm.edu.deepdive.concertfinder.service.holdmyticket.HoldMyTicketService;
 import com.google.gson.Gson;
@@ -25,6 +30,14 @@ public class SearchFragment extends Fragment implements TextWatcher {
   ListView search_shows;
   ArrayAdapter<String> adapter;
 
+  /**
+   * This class holds the query services for the holdmyticket api
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
+
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
@@ -37,8 +50,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
     super.onActivityCreated(savedInstanceState);
 
     View view = getView();
-    EditText txtSearch = view.findViewById(R.id.txtSearch);
-    txtSearch.addTextChangedListener(this);
+    SearchView txtSearch = view.findViewById(R.id.txtSearch);
   }
 
   private void setupService() {
@@ -49,6 +61,9 @@ public class SearchFragment extends Fragment implements TextWatcher {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build();
     service = retrofit.create(HoldMyTicketService.class);
+    /**
+     * This method builds a gson item using the api and builds it.
+     */
   }
 
   @Override

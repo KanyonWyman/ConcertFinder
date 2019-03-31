@@ -1,3 +1,7 @@
+/**
+ * @author Kanyon Wyman
+ * @version 1.0
+ */
 package cnm.edu.deepdive.concertfinder.service.holdmyticket;
 
 import cnm.edu.deepdive.concertfinder.service.holdmyticket.models.EventsResponse;
@@ -9,4 +13,7 @@ public interface HoldMyTicketService {
   // /public/events/nearby?search=<query>
   @GET("public/events/nearby")
   Call<EventsResponse> getEventsNearby(@Query("search") String search);
+  /**
+   * This gets the params of the search from holdmyticket.
+   */
 }
