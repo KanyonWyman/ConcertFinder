@@ -27,7 +27,7 @@ The current state of the app is basic implementation of API from HoldMyTicket th
 
 ##List of 3rd party libraries##
 
-[Facebook Stetho}(https://github.com/facebook/stetho)
+[Facebook Stetho](https://github.com/facebook/stetho)
 
 [Google Play Signin](https://developers.google.com/android/guides/releases)
 Allows you to sign in with google
