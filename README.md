@@ -21,11 +21,11 @@ This app will use data collected from ticket selling sites and local sources suc
 
 For more details on the project click this link [Javadoc](docs/api)
 
-##State of completion and readiness##
+##State of completion and readiness
 
 The current state of the app is basic implementation of API from HoldMyTicket that allows the user to see and save upcoming events in ABQ. To be able to use the app, you must sign in using a google account. The future of the app will hold much more funtions for the user including: sharing events to othe3r social medias, save events to your google calender, and using bigger APIs, such as ticket master, to take the app nation wide.
 
-##List of 3rd party libraries##
+##List of 3rd party libraries
 
 [Facebook Stetho](https://github.com/facebook/stetho)
 
@@ -50,7 +50,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-##Build Instructions##
+##Build Instructions
 
 Step 1 - [Clone Git Repository](https://github.com/KanyonWyman/ConcertFinder)
 
